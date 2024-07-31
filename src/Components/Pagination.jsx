@@ -55,7 +55,15 @@ export default function BasicTable() {
 
   return (
     <>
-      <h2 style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+      <h2
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          height: "fit-content",
+          padding: "0px",
+        }}
+      >
         Employee Data Table
       </h2>
       <TableContainer
@@ -83,7 +91,9 @@ export default function BasicTable() {
             {currentData.map((row) => (
               <TableRow
                 key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                }}
               >
                 <TableCell>{row.id}</TableCell>
                 <TableCell>{row.name}</TableCell>
@@ -95,13 +105,9 @@ export default function BasicTable() {
         </Table>
       </TableContainer>
       <Box className={styles.paginationWrapper}>
-        <button onClick={handlePrev} disabled={currentPage === 1}>
-          Previous
-        </button>
+        <button onClick={handlePrev}>Previous</button>
         <p>{currentPage}</p>
-        <button onClick={handleNext} disabled={currentPage === totalPages}>
-          Next
-        </button>
+        <button onClick={handleNext}>Next</button>
       </Box>
     </>
   );
